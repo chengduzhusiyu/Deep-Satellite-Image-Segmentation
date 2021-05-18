@@ -19,4 +19,7 @@ band5[:,:,2] = band3/np.max(band3) - band5[:,:,0]
 band6 = np.zeros((band1.shape[0],band1.shape[1]))
 for i in range(band1.shape[0]):
     for j in range(band1.shape[1]):
-        if ((band5[i][j][1] <= 0 and band5[i][j][1] >
+        if ((band5[i][j][1] <= 0 and band5[i][j][1] >= -0.26) and (band5[i][j][2] <= 0 and band5[i][j][2] >= -0.27)):
+            band6[i][j] = 1
+        else:
+            band6[i]
