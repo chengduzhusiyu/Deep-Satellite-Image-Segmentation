@@ -11,4 +11,6 @@ band1 = ds.GetRasterBand(1).ReadAsArray()    #Red
 band2 = ds.GetRasterBand(2).ReadAsArray()    # Green 
 band3 = ds.GetRasterBand(3).ReadAsArray()    #blue
 band4 = ds.GetRasterBand(4).ReadAsArray()
-band5 = np.zeros((ba
+band5 = np.zeros((band1.shape[0],band1.shape[1],3))
+band5[:,:,0] = band4/np.max(band4)
+band5[:,:,1] = band2/np.max(band2) - 
