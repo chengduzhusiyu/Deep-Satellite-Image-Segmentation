@@ -13,4 +13,7 @@ band3 = ds.GetRasterBand(3).ReadAsArray()    #blue
 band4 = ds.GetRasterBand(4).ReadAsArray()
 band5 = np.zeros((band1.shape[0],band1.shape[1],3))
 band5[:,:,0] = band4/np.max(band4)
-band5[:,:,1] = band2/np.max(band2) - 
+band5[:,:,1] = band2/np.max(band2) - band5[:,:,0] 
+band5[:,:,2] = band3/np.max(band3) - band5[:,:,0] 
+
+band6 = np.zeros((band1.shape[0],band
