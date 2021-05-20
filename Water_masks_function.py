@@ -4,4 +4,9 @@ import cv2
 import matplotlib
 import math
 from matplotlib import pyplot as plt
-imp
+import gdal
+
+
+
+ds = gdal.Open("sat_test/"+str("name")+".tif")
+band1 = ds.GetRasterBand(1).ReadAsArray()    #Re
