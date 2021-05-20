@@ -22,4 +22,8 @@ for i in range(band1.shape[0]):
         if ((band5[i][j][1] <= 0 and band5[i][j][1] >= -0.26) and (band5[i][j][2] <= 0 and band5[i][j][2] >= -0.27)):
             band6[i][j] = 1
         else:
-            band6[i]
+            band6[i][j] = 0
+
+            
+print(band6.shape, " shape of grass mask band 6")
+plt.imsave("/Users/kunal/Deskto
