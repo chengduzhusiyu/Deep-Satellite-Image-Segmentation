@@ -26,4 +26,5 @@ for i in range(band1.shape[0]):
 
             
 print(band6.shape, " shape of grass mask band 6")
-plt.imsave("/Users/kunal/Deskto
+plt.imsave("/Users/kunal/Desktop/Test_Grass_Mask/"+str(p)+".png",band6,cmap='gray')
+print(" Grass mask Saved")
