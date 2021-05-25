@@ -18,4 +18,8 @@ band5 = np.zeros((nparray1.shape[0],nparray1.shape[1]))
 band5 = band4/np.max(band4)
 for i in range(band1.shape[0]):
     for j in range(band1.shape[1]):
-      
+        if band5[i][j] <= 0.019:
+             band5[i][j] = 1
+        else:
+            band5[i][j] = 0
+prin
