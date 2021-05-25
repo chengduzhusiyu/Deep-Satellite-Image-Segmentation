@@ -23,4 +23,5 @@ for i in range(band1.shape[0]):
         else:
             band5[i][j] = 0
 print(band5.shape," shape of water band 5 ")            
-plt.imsave("Test_Water_Mask/"+str(p)+".p
+plt.imsave("Test_Water_Mask/"+str(p)+".png",band5,cmap= 'gray')
+print("Water band saved ")  
