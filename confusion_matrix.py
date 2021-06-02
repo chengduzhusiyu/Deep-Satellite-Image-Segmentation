@@ -47,3 +47,9 @@ for i in range(1,15):
     cm1 = confutionmatrix(img,gt)
     print(cm1,"with whi te")
     newcm1 = cm1[0:8,0:8]
+    print(newcm1.shape,"without white")
+    print(newcm1)
+    print(kappa(cm1),"kappa score without white")
+    print(kappa(newcm1),"kappa with white")
+    print(f1Score(cm1),"f1Score without white")
+    print(f1Score(newcm1),"f1score with white")    
