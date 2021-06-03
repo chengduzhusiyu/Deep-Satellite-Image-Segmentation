@@ -294,3 +294,89 @@ def main( argv=None ):
             separate = 1
 
         elif arg == '-seperate':
+            separate = 1
+
+        elif arg == '-pct':
+            copy_pct = 1
+
+        elif arg == '-ot':
+            i = i + 1
+            band_type = gdal.GetDataTypeByName( argv[i] )
+            if band_type == gdal.GDT_Unknown:
+                print('Unknown GDAL data type: ', argv[i])
+                sys.exit( 1 )
+
+        elif arg == '-init':
+            i = i + 1
+            str_pre_init = argv[i].split()
+            for x in str_pre_init:
+                pre_init.append(float(x))
+
+        elif arg == '-n':
+            i = i + 1
+            nodata = float(argv[i])
+
+        elif arg == '-f':
+            # for backward compatibility.
+            i = i + 1
+            format = argv[i]
+
+        elif arg == '-of':
+            i = i + 1
+            format = argv[i]
+
+        elif arg == '-co':
+            i = i + 1
+            create_options.append( argv[i] )
+
+        elif arg == '-ps':
+            psize_x = float(argv[i+1])
+            psize_y = -1 * abs(float(argv[i+2]))
+            i = i + 2
+
+        elif arg == '-ul_lr':
+            ulx = float(argv[i+1])
+            uly = float(argv[i+2])
+            lrx = float(argv[i+3])
+            lry = float(argv[i+4])
+            i = i + 4
+
+        elif arg[:1] == '-':
+            print('Unrecognised command option: ', arg)
+            Usage()
+            sys.exit( 1 )
+
+        else:
+            # Expand any possible wildcards from command line arguments
+            f = glob.glob( arg )
+            if len(f) == 0:
+                print('File not found: "%s"' % (str( arg )))
+            names += f # append 1 or more files
+        i = i + 1
+
+    if len(names) == 0:
+        print('No input files selected.')
+        Usage()
+        sys.exit( 1 )
+
+    Driver = gdal.GetDriverByName(format)
+    if Driver is None:
+        print('Format driver %s not found, pick a supported driver.' % format)
+        sys.exit( 1 )
+
+    DriverMD = Driver.GetMetadata()
+    if 'DCAP_CREATE' not in DriverMD:
+        print('Format driver %s does not support creation and piecewise writing.\nPlease select a format that does, such as GTiff (the default) or HFA (Erdas Imagine).' % format)
+        sys.exit( 1 )
+
+    # Collect information on all the source files.
+    file_infos = names_to_fileinfos( names )
+
+    if ulx is None:
+        ulx = file_infos[0].ulx
+        uly = file_infos[0].uly
+        lrx = file_infos[0].lrx
+        lry = file_infos[0].lry
+        
+        for fi in file_infos:
+            ulx = min(ulx, fi.ulx)
