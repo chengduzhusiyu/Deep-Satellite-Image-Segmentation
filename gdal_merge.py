@@ -207,3 +207,90 @@ class file_info:
         tw_xsize = int((tgw_lrx - t_geotransform[0])/t_geotransform[1] + 0.5) \
                    - tw_xoff
         tw_ysize = int((tgw_lry - t_geotransform[3])/t_geotransform[5] + 0.5) \
+                   - tw_yoff
+
+        if tw_xsize < 1 or tw_ysize < 1:
+            return 1
+
+        # Compute source window in pixel coordinates.
+        sw_xoff = int((tgw_ulx - self.geotransform[0]) / self.geotransform[1])
+        sw_yoff = int((tgw_uly - self.geotransform[3]) / self.geotransform[5])
+        sw_xsize = int((tgw_lrx - self.geotransform[0]) \
+                       / self.geotransform[1] + 0.5) - sw_xoff
+        sw_ysize = int((tgw_lry - self.geotransform[3]) \
+                       / self.geotransform[5] + 0.5) - sw_yoff
+
+        if sw_xsize < 1 or sw_ysize < 1:
+            return 1
+
+        # Open the source file, and copy the selected region.
+        s_fh = gdal.Open( self.filename )
+
+        return \
+            raster_copy( s_fh, sw_xoff, sw_yoff, sw_xsize, sw_ysize, s_band,
+                         t_fh, tw_xoff, tw_yoff, tw_xsize, tw_ysize, t_band,
+                         nodata_arg )
+
+
+# =============================================================================
+def Usage():
+    print('Usage: gdal_merge.py [-o out_filename] [-of out_format] [-co NAME=VALUE]*')
+    print('                     [-ps pixelsize_x pixelsize_y] [-separate] [-q] [-v] [-pct]')
+    print('                     [-ul_lr ulx uly lrx lry] [-n nodata_value] [-init "value [value...]"]')
+    print('                     [-ot datatype] [-createonly] input_files')
+    print('                     [--help-general]')
+    print('')
+
+# =============================================================================
+#
+# Program mainline.
+#
+
+def main( argv=None ):
+
+    global verbose, quiet
+    verbose = 0
+    quiet = 0
+    names = []
+    format = 'GTiff'
+    out_file = 'out.tif'
+
+    ulx = None
+    psize_x = None
+    separate = 0
+    copy_pct = 0
+    nodata = None
+    create_options = []
+    pre_init = []
+    band_type = None
+    createonly = 0
+    
+    gdal.AllRegister()
+    if argv is None:
+        argv = sys.argv
+    argv = gdal.GeneralCmdLineProcessor( argv )
+    if argv is None:
+        sys.exit( 0 )
+
+    # Parse command line arguments.
+    i = 1
+    while i < len(argv):
+        arg = argv[i]
+
+        if arg == '-o':
+            i = i + 1
+            out_file = argv[i]
+
+        elif arg == '-v':
+            verbose = 1
+
+        elif arg == '-q' or arg == '-quiet':
+            quiet = 1
+
+        elif arg == '-createonly':
+            createonly = 1
+
+        elif arg == '-separate':
+            separate = 1
+
+        elif arg == '-seperate':
