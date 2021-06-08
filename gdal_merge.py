@@ -468,3 +468,6 @@ def main( argv=None ):
     
     # Force file to be closed.
     t_fh = None
+
+if __name__ == '__main__':
+    sys.exit(main())
