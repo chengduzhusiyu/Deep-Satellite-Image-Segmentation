@@ -380,3 +380,91 @@ def main( argv=None ):
         
         for fi in file_infos:
             ulx = min(ulx, fi.ulx)
+            uly = max(uly, fi.uly)
+            lrx = max(lrx, fi.lrx)
+            lry = min(lry, fi.lry)
+
+    if psize_x is None:
+        psize_x = file_infos[0].geotransform[1]
+        psize_y = file_infos[0].geotransform[5]
+
+    if band_type is None:
+        band_type = file_infos[0].band_type
+
+    # Try opening as an existing file.
+    gdal.PushErrorHandler( 'CPLQuietErrorHandler' )
+    t_fh = gdal.Open( out_file, gdal.GA_Update )
+    gdal.PopErrorHandler()
+    
+    # Create output file if it does not already exist.
+    if t_fh is None:
+        geotransform = [ulx, psize_x, 0, uly, 0, psize_y]
+
+        xsize = int((lrx - ulx) / geotransform[1] + 0.5)
+        ysize = int((lry - uly) / geotransform[5] + 0.5)
+
+        if separate != 0:
+            bands = len(file_infos)
+        else:
+            bands = file_infos[0].bands
+
+        t_fh = Driver.Create( out_file, xsize, ysize, bands,
+                              band_type, create_options )
+        if t_fh is None:
+            print('Creation failed, terminating gdal_merge.')
+            sys.exit( 1 )
+            
+        t_fh.SetGeoTransform( geotransform )
+        t_fh.SetProjection( file_infos[0].projection )
+
+        if copy_pct:
+            t_fh.GetRasterBand(1).SetRasterColorTable(file_infos[0].ct)
+    else:
+        if separate != 0:
+            bands = len(file_infos)
+            if t_fh.RasterCount < bands :
+                print('Existing output file has less bands than the number of input files. You should delete it before. Terminating gdal_merge.')
+                sys.exit( 1 )
+        else:
+            bands = min(file_infos[0].bands,t_fh.RasterCount)
+
+    # Do we need to pre-initialize the whole mosaic file to some value?
+    if pre_init is not None:
+        if t_fh.RasterCount <= len(pre_init):
+            for i in range(t_fh.RasterCount):
+                t_fh.GetRasterBand(i+1).Fill( pre_init[i] )
+        elif len(pre_init) == 1:
+            for i in range(t_fh.RasterCount):
+                t_fh.GetRasterBand(i+1).Fill( pre_init[0] )
+
+    # Copy data from source files into output file.
+    t_band = 1
+
+    if quiet == 0 and verbose == 0:
+        gdal.TermProgress( 0.0 )
+    fi_processed = 0
+    
+    for fi in file_infos:
+        if createonly != 0:
+            continue
+        
+        if verbose != 0:
+            print("")
+            print("Processing file %5d of %5d, %6.3f%% completed." \
+                  % (fi_processed+1,len(file_infos),
+                     fi_processed * 100.0 / len(file_infos)) )
+            fi.report()
+
+        if separate == 0 :
+            for band in range(1, bands+1):
+                fi.copy_into( t_fh, band, band, nodata )
+        else:
+            fi.copy_into( t_fh, 1, t_band, nodata )
+            t_band = t_band+1
+            
+        fi_processed = fi_processed+1
+        if quiet == 0 and verbose == 0:
+            gdal.TermProgress( fi_processed / float(len(file_infos))  )
+    
+    # Force file to be closed.
+    t_fh = None
