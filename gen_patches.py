@@ -12,4 +12,6 @@ def get_rand_patch(img, mask, sz=160):
         assert len(img.shape) == 3 and img.shape[0] > sz and img.shape[1] > sz and img.shape[0:2] == mask.shape[0:2]
     except:
         print("img.shape",len(img.shape))
-        print("img.sha
+        print("img.shape[0:2]",img.shape[0:2])
+        print("mask.shape[0:2]",mask.shape[0:2])
+    xc = random.randint(0, img.shape[0] -
