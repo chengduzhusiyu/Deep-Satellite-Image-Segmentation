@@ -14,4 +14,6 @@ def get_rand_patch(img, mask, sz=160):
         print("img.shape",len(img.shape))
         print("img.shape[0:2]",img.shape[0:2])
         print("mask.shape[0:2]",mask.shape[0:2])
-    xc = random.randint(0, img.shape[0] -
+    xc = random.randint(0, img.shape[0] - sz)
+    yc = random.randint(0, img.shape[1] - sz)
+    patch_img = img[xc:(xc + sz), yc
