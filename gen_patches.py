@@ -16,4 +16,7 @@ def get_rand_patch(img, mask, sz=160):
         print("mask.shape[0:2]",mask.shape[0:2])
     xc = random.randint(0, img.shape[0] - sz)
     yc = random.randint(0, img.shape[1] - sz)
-    patch_img = img[xc:(xc + sz), yc
+    patch_img = img[xc:(xc + sz), yc:(yc + sz)]
+    patch_mask = mask[xc:(xc + sz), yc:(yc + sz)]
+
+    # Apply some random transformation
