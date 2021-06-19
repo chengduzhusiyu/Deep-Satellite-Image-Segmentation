@@ -9,4 +9,7 @@ def get_rand_patch(img, mask, sz=160):
     :return: patch with shape (sz, sz, num_channels)
     """
     try:
-        assert len(img.shape) == 3 and img.shape[0] > sz and img.shape[1] > sz and img.shape[0
+        assert len(img.shape) == 3 and img.shape[0] > sz and img.shape[1] > sz and img.shape[0:2] == mask.shape[0:2]
+    except:
+        print("img.shape",len(img.shape))
+        print("img.sha
