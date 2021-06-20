@@ -21,4 +21,7 @@ def get_rand_patch(img, mask, sz=160):
 
     # Apply some random transformations
     random_transformation = np.random.randint(1,8)
-    if random_transformation == 1:  # reve
+    if random_transformation == 1:  # reverse first dimension
+        patch_img = patch_img[::-1,:,:]
+        patch_mask = patch_mask[::-1,:,:]
+    e
