@@ -19,4 +19,6 @@ def get_rand_patch(img, mask, sz=160):
     patch_img = img[xc:(xc + sz), yc:(yc + sz)]
     patch_mask = mask[xc:(xc + sz), yc:(yc + sz)]
 
-    # Apply some random transformation
+    # Apply some random transformations
+    random_transformation = np.random.randint(1,8)
+    if random_transformation == 1:  # reve
