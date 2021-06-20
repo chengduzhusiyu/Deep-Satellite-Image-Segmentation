@@ -26,4 +26,5 @@ def get_rand_patch(img, mask, sz=160):
         patch_mask = patch_mask[::-1,:,:]
     elif random_transformation == 2:    # reverse second dimension
         patch_img = patch_img[:,::-1,:]
-        patch_mas
+        patch_mask = patch_mask[:,::-1,:]
+    elif random_transformation == 3:    # transpose(interchange) first a
