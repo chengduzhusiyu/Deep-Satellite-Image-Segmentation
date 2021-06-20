@@ -24,4 +24,6 @@ def get_rand_patch(img, mask, sz=160):
     if random_transformation == 1:  # reverse first dimension
         patch_img = patch_img[::-1,:,:]
         patch_mask = patch_mask[::-1,:,:]
-    e
+    elif random_transformation == 2:    # reverse second dimension
+        patch_img = patch_img[:,::-1,:]
+        patch_mas
