@@ -31,4 +31,7 @@ def get_rand_patch(img, mask, sz=160):
         patch_img = patch_img.transpose([1,0,2])
         patch_mask = patch_mask.transpose([1,0,2])
     elif random_transformation == 4:
-        patch_img = np.rot90(p
+        patch_img = np.rot90(patch_img, 1)
+        patch_mask = np.rot90(patch_mask, 1)
+    elif random_transformation == 5:
+  
