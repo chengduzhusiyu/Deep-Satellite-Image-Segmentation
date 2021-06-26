@@ -50,4 +50,7 @@ def get_patches(x_dict, y_dict, n_patches, sz=160):
     y = list()
     total_patches = 0
     while total_patches < n_patches:
-        img_id = 
+        img_id = random.sample(x_dict.keys(), 1)[0]
+        img = x_dict[img_id]
+        mask = y_dict[img_id]
+       
