@@ -39,4 +39,10 @@ def get_rand_patch(img, mask, sz=160):
     elif random_transformation == 6:
         patch_img = np.rot90(patch_img, 3)
         patch_mask = np.rot90(patch_mask, 3)
- 
+    else:
+        pass
+
+    return patch_img, patch_mask
+
+
+def get_patches(x_dict, y_dict, n_patches, sz=1
