@@ -53,4 +53,6 @@ def get_patches(x_dict, y_dict, n_patches, sz=160):
         img_id = random.sample(x_dict.keys(), 1)[0]
         img = x_dict[img_id]
         mask = y_dict[img_id]
-       
+        img_patch, mask_patch = get_rand_patch(img, mask, sz)
+        x.append(img_patch)
+        y.append(mask
