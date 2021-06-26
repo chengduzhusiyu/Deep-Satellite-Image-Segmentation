@@ -45,4 +45,9 @@ def get_rand_patch(img, mask, sz=160):
     return patch_img, patch_mask
 
 
-def get_patches(x_dict, y_dict, n_patches, sz=1
+def get_patches(x_dict, y_dict, n_patches, sz=160):
+    x = list()
+    y = list()
+    total_patches = 0
+    while total_patches < n_patches:
+        img_id = 
