@@ -55,4 +55,7 @@ def get_patches(x_dict, y_dict, n_patches, sz=160):
         mask = y_dict[img_id]
         img_patch, mask_patch = get_rand_patch(img, mask, sz)
         x.append(img_patch)
-        y.append(mask
+        y.append(mask_patch)
+        total_patches += 1
+    print('Generated {} patches'.format(total_patches))
+    re
