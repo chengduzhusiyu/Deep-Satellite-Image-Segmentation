@@ -58,4 +58,6 @@ def get_patches(x_dict, y_dict, n_patches, sz=160):
         y.append(mask_patch)
         total_patches += 1
     print('Generated {} patches'.format(total_patches))
-    re
+    return np.array(x), np.array(y)
+
+
