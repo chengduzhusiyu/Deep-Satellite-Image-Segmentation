@@ -10,4 +10,7 @@ from keras import backend as K
 def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_factor=2, upconv=True,
                class_weights=[0.2, 0.3, 0.1, 0.1, 0.3]):
     droprate=0.25
-    n_filters = n_filters_st
+    n_filters = n_filters_start
+    inputs = Input((im_sz, im_sz, n_channels))
+    #inputs = BatchNormalization()(inputs)
+    
