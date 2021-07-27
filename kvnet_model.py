@@ -50,4 +50,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     conv5 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(pool4_2)
     conv5 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(conv5)
 
-    n_filters //=
+    n_filters //= growth_factor
+    if upconv:
+        up6_1 = concatenate([Conv2DTranspose(n_filters, (2, 2), strides=(2, 2), padding='same')(c
