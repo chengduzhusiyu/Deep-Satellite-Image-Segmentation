@@ -84,4 +84,5 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     if upconv:
         up8 = concatenate([Conv2DTranspose(n_filters, (2, 2), strides=(2, 2), padding='same')(conv7), conv2])
     else:
-   
+        up8 = concatenate([UpSampling2D(size=(2, 2))(conv7), conv2])
+    up8 = BatchNormalization()(up8
