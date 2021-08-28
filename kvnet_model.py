@@ -90,4 +90,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     conv8 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(conv8)
     conv8 = Dropout(droprate)(conv8)
 
-    n_filters //= growth_fa
+    n_filters //= growth_factor
+    if upconv:
+        up9 = concatenate([Conv2DTranspose(n_filters, (2, 2), strides=(2, 2), padding='sam
