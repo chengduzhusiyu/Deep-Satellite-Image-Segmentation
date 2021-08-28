@@ -87,4 +87,7 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
         up8 = concatenate([UpSampling2D(size=(2, 2))(conv7), conv2])
     up8 = BatchNormalization()(up8)
     conv8 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(up8)
-    conv8 = Conv2D(n
+    conv8 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(conv8)
+    conv8 = Dropout(droprate)(conv8)
+
+    n_filters //= growth_fa
