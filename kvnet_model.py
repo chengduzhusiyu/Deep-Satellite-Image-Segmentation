@@ -98,4 +98,8 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     conv9 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(up9)
     conv9 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(conv9)
 
-    conv10 = Conv2D(n_classes, (1, 1), activation='sigmoid')(conv
+    conv10 = Conv2D(n_classes, (1, 1), activation='sigmoid')(conv9)
+
+    model = Model(inputs=inputs, outputs=conv10)
+
+    def weighted_binary_crossentropy(y_true, y
