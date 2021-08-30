@@ -104,4 +104,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
 
     def weighted_binary_crossentropy(y_true, y_pred):
         class_loglosses = K.mean(K.binary_crossentropy(y_true, y_pred), axis=[0, 1, 2])
-        
+        return K.sum(class_loglosses * K.constant(class_weights))
+
+    model.compile(optimizer=Adam(), lo
