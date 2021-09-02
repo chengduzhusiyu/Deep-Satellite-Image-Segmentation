@@ -120,3 +120,22 @@ if __name__ == '__main__':
                 # print("Case 5", temp.shape, mymat.shape)
                 mymat = np.mean( np.array([ np.rot90(temp,-2).transpose([2,0,1]), mymat ]), axis=0 )
             elif i == 5:
+                temp = predict(np.rot90(img,3), model, patch_sz=PATCH_SZ, n_classes=N_CLASSES)
+                #print(temp.transpose([2,0,1])[0][0][0], temp.transpose([2,0,1])[3][12][13])
+                # print("Case 6", temp.shape, mymat.shape)
+                mymat = np.mean( np.array([ np.rot90(temp, -3).transpose(2,0,1), mymat ]), axis=0 )
+            else:
+                temp = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])
+                #print(temp[0][0][0], temp[3][12][13])
+                # print("Case 7", temp.shape, mymat.shape)
+                mymat = np.mean( np.array([ temp, mymat ]), axis=0 )
+    
+        #print(mymat[0][0][0], mymat[3][12][13])
+        map = picture_from_mask(mymat, 0.5)
+        #mask = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])  # make channels first
+        #map = picture_from_mask(mask, 0.5)
+    
+        #tiff.imsave('result.tif', (255*mask).astype('uint8'))
+        tiff.imsave('data/testout/res{}.tif'.format(test_id), (255*mymat).astype('uint8'))
+        tiff.imsave('data/testout/map{}.tif'.format(test_id), map)
+    
