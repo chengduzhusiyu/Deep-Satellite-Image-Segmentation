@@ -12,4 +12,5 @@ def predict(x, model, patch_sz=160, n_classes=8):
     img_width = x.shape[1]
     n_channels = x.shape[2]
     # make extended img so that it contains integer number of patches
-    np
+    npatches_vertical = math.ceil(img_height / patch_sz)
+    npatches_horizontal = math.ceil(im
