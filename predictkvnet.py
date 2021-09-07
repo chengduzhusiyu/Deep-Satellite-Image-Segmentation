@@ -15,4 +15,5 @@ def predict(x, model, patch_sz=160, n_classes=8):
     npatches_vertical = math.ceil(img_height / patch_sz)
     npatches_horizontal = math.ceil(img_width / patch_sz)
     extended_height = patch_sz * npatches_vertical
-    extended_width = 
+    extended_width = patch_sz * npatches_horizontal
+    ext_x = np.zeros(shape=(extended_height, extended_width, 
