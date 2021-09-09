@@ -16,4 +16,6 @@ def predict(x, model, patch_sz=160, n_classes=8):
     npatches_horizontal = math.ceil(img_width / patch_sz)
     extended_height = patch_sz * npatches_vertical
     extended_width = patch_sz * npatches_horizontal
-    ext_x = np.zeros(shape=(extended_height, extended_width, 
+    ext_x = np.zeros(shape=(extended_height, extended_width, n_channels), dtype=np.float32)
+    # fill extended image with mirrors:
+    ext_x[:img_height, :img_widt
