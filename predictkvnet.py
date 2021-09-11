@@ -26,4 +26,7 @@ def predict(x, model, patch_sz=160, n_classes=8):
 
     # now we assemble all patches in one array
     patches_list = []
-    for i in range(0
+    for i in range(0, npatches_vertical):
+        for j in range(0, npatches_horizontal):
+            x0, x1 = i * patch_sz, (i + 1) * patch_sz
+    
