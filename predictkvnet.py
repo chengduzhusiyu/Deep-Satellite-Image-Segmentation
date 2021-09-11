@@ -22,4 +22,8 @@ def predict(x, model, patch_sz=160, n_classes=8):
     for i in range(img_height, extended_height):
         ext_x[i, :, :] = ext_x[2 * img_height - i - 1, :, :]
     for j in range(img_width, extended_width):
-        ext_x[:, j, :] = ext_x[:, 2
+        ext_x[:, j, :] = ext_x[:, 2 * img_width - j - 1, :]
+
+    # now we assemble all patches in one array
+    patches_list = []
+    for i in range(0
