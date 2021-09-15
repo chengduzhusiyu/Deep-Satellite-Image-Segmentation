@@ -35,4 +35,5 @@ def predict(x, model, patch_sz=160, n_classes=8):
     patches_array = np.asarray(patches_list)
     # predictions:
     patches_predict = model.predict(patches_array, batch_size=4)
-    predicti
+    prediction = np.zeros(shape=(extended_height, extended_width, n_classes), dtype=np.float32)
+    print("
