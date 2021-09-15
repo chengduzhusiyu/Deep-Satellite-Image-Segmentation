@@ -30,4 +30,6 @@ def predict(x, model, patch_sz=160, n_classes=8):
         for j in range(0, npatches_horizontal):
             x0, x1 = i * patch_sz, (i + 1) * patch_sz
             y0, y1 = j * patch_sz, (j + 1) * patch_sz
-            patches_list.append(ext_x[x0:x1, y0
+            patches_list.append(ext_x[x0:x1, y0:y1, :])
+    # model.predict() needs numpy array rather than a list
+    patches_array = np.asarray(patches_lis
