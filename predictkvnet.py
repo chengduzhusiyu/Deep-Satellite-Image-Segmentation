@@ -32,4 +32,7 @@ def predict(x, model, patch_sz=160, n_classes=8):
             y0, y1 = j * patch_sz, (j + 1) * patch_sz
             patches_list.append(ext_x[x0:x1, y0:y1, :])
     # model.predict() needs numpy array rather than a list
-    patches_array = np.asarray(patches_lis
+    patches_array = np.asarray(patches_list)
+    # predictions:
+    patches_predict = model.predict(patches_array, batch_size=4)
+    predicti
