@@ -42,4 +42,8 @@ def predict(x, model, patch_sz=160, n_classes=8):
     j=0
     for k in range(1,1+patches_predict.shape[0]):
         x0, x1 = (i) * patch_sz, (i+1) * patch_sz
-        y0, y1 = (j) * patch_sz, (j+1) *
+        y0, y1 = (j) * patch_sz, (j+1) * patch_sz
+        if (k % npatches_horizontal == 0 and k!=0):
+            i+=1
+            j=0
+ 
