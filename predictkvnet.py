@@ -36,4 +36,8 @@ def predict(x, model, patch_sz=160, n_classes=8):
     # predictions:
     patches_predict = model.predict(patches_array, batch_size=4)
     prediction = np.zeros(shape=(extended_height, extended_width, n_classes), dtype=np.float32)
-    print("
+    print("starting of k")
+    print(npatches_horizontal)
+    i=0
+    j=0
+    for k in range(1,1+patches_predict.shap
