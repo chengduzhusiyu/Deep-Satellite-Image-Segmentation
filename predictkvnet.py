@@ -46,4 +46,6 @@ def predict(x, model, patch_sz=160, n_classes=8):
         if (k % npatches_horizontal == 0 and k!=0):
             i+=1
             j=0
- 
+        else:
+            j+=1
+        prediction[x0:x1, y0:y1, :] = patches_predict[k-1, :, :, :
