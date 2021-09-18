@@ -57,4 +57,6 @@ def predict(x, model, patch_sz=160, n_classes=8):
 def picture_from_mask(mask, threshold=0):
     colors = {
         0: [150, 80, 0],  # Brown - Bare Soil
-  
+        1: [0, 255, 0],  # Light green - Grass
+        2: [100, 100, 100],    # Gray - Building
+        3: [150, 150, 255],  # P
