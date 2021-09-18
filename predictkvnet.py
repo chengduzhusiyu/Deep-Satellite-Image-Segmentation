@@ -48,4 +48,7 @@ def predict(x, model, patch_sz=160, n_classes=8):
             j=0
         else:
             j+=1
-        prediction[x0:x1, y0:y1, :] = patches_predict[k-1, :, :, :
+        prediction[x0:x1, y0:y1, :] = patches_predict[k-1, :, :, :]
+    print("ending of k")
+        
+    return prediction[:img_height, :img_width, :]
