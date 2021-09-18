@@ -52,3 +52,9 @@ def predict(x, model, patch_sz=160, n_classes=8):
     print("ending of k")
         
     return prediction[:img_height, :img_width, :]
+
+
+def picture_from_mask(mask, threshold=0):
+    colors = {
+        0: [150, 80, 0],  # Brown - Bare Soil
+  
