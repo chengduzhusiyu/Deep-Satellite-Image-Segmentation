@@ -59,4 +59,6 @@ def picture_from_mask(mask, threshold=0):
         0: [150, 80, 0],  # Brown - Bare Soil
         1: [0, 255, 0],  # Light green - Grass
         2: [100, 100, 100],    # Gray - Building
-        3: [150, 150, 255],  # P
+        3: [150, 150, 255],  # Purple - Swimming Pool
+        4: [0, 125, 0],   # Dark Green - Trees
+        5: [0, 0, 0],     # B
