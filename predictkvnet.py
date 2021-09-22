@@ -61,4 +61,6 @@ def picture_from_mask(mask, threshold=0):
         2: [100, 100, 100],    # Gray - Building
         3: [150, 150, 255],  # Purple - Swimming Pool
         4: [0, 125, 0],   # Dark Green - Trees
-        5: [0, 0, 0],     # B
+        5: [0, 0, 0],     # Black - Roads
+        6: [255, 255, 0],  # Yellow - Railway Station
+        7: [0, 0, 150]     # Blue - 
