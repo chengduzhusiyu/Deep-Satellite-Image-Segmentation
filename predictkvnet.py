@@ -63,4 +63,12 @@ def picture_from_mask(mask, threshold=0):
         4: [0, 125, 0],   # Dark Green - Trees
         5: [0, 0, 0],     # Black - Roads
         6: [255, 255, 0],  # Yellow - Railway Station
-        7: [0, 0, 150]     # Blue - 
+        7: [0, 0, 150]     # Blue - Water
+    }
+    z_order = {
+        1: 0,
+        2: 1,
+        3: 2,
+        4: 3,
+        5: 4,
+        6: 5,
