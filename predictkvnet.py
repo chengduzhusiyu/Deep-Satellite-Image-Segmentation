@@ -72,3 +72,8 @@ def picture_from_mask(mask, threshold=0):
         4: 3,
         5: 4,
         6: 5,
+        7: 6,
+        8: 7
+    }
+    pict = 255*np.ones(shape=(3, mask.shape[1], mask.shape[2]), dtype=np.uint8)
+    f
