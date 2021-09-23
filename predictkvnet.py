@@ -76,4 +76,7 @@ def picture_from_mask(mask, threshold=0):
         8: 7
     }
     pict = 255*np.ones(shape=(3, mask.shape[1], mask.shape[2]), dtype=np.uint8)
-    f
+    for i in range(1, 9):
+        cl = z_order[i]
+        for ch in range(3):
+            pict[ch,:,:][mask[cl,:,:] >
