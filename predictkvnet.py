@@ -85,4 +85,6 @@ def picture_from_mask(mask, threshold=0):
 
 if __name__ == '__main__':
     model = get_model()
-   
+    weights_path = "weights/KV_weights.hdf5"
+    print(weights_path)
+    model.load_weights(weights_
