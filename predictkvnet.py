@@ -79,4 +79,10 @@ def picture_from_mask(mask, threshold=0):
     for i in range(1, 9):
         cl = z_order[i]
         for ch in range(3):
-            pict[ch,:,:][mask[cl,:,:] >
+            pict[ch,:,:][mask[cl,:,:] > threshold] = colors[cl][ch]
+    return pict
+
+
+if __name__ == '__main__':
+    model = get_model()
+   
