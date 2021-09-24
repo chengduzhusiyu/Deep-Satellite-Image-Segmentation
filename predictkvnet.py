@@ -92,4 +92,6 @@ if __name__ == '__main__':
     
     
     for n in range(1,15):
-        test_id = test_id_n + st
+        test_id = test_id_n + str(n)
+        print('Predicting for data/kvinputData/{}.tif'.format(test_id))
+        img = normaliz
