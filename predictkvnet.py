@@ -87,4 +87,9 @@ if __name__ == '__main__':
     model = get_model()
     weights_path = "weights/KV_weights.hdf5"
     print(weights_path)
-    model.load_weights(weights_
+    model.load_weights(weights_path)
+    test_id_n = "res"
+    
+    
+    for n in range(1,15):
+        test_id = test_id_n + st
