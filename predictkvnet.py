@@ -94,4 +94,5 @@ if __name__ == '__main__':
     for n in range(1,15):
         test_id = test_id_n + str(n)
         print('Predicting for data/kvinputData/{}.tif'.format(test_id))
-        img = normaliz
+        img = normalize(tiff.imread('data/kvinputData/{}.tif'.format(test_id)).transpose([1,2,0]))
+        print(img.sha
