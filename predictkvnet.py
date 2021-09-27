@@ -95,4 +95,7 @@ if __name__ == '__main__':
         test_id = test_id_n + str(n)
         print('Predicting for data/kvinputData/{}.tif'.format(test_id))
         img = normalize(tiff.imread('data/kvinputData/{}.tif'.format(test_id)).transpose([1,2,0]))
-        print(img.sha
+        print(img.shape)
+        for i in range(7):
+            if i == 0:  # reverse first dimension
+                mymat = pred
