@@ -99,4 +99,6 @@ if __name__ == '__main__':
         for i in range(7):
             if i == 0:  # reverse first dimension
                 mymat = predict(img[::-1,:,:], model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])
+                #print(mymat[0][0][0], mymat[3][12][13])
+                # print("Case 1",img.shape, mymat.shape)
          
