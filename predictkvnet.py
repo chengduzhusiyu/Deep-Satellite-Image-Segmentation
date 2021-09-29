@@ -102,4 +102,5 @@ if __name__ == '__main__':
                 #print(mymat[0][0][0], mymat[3][12][13])
                 # print("Case 1",img.shape, mymat.shape)
             elif i == 1:    # reverse second dimension
-                temp = predict(img[:,::-1,:], m
+                temp = predict(img[:,::-1,:], model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])
+                #print(temp[0][0][0], temp
