@@ -111,4 +111,5 @@ if __name__ == '__main__':
                 #print(temp[0][0][0], temp[3][12][13])
                 print("Case 3", temp.shape, mymat.shape)
                 mymat = np.mean( np.array([ temp.transpose(0,2,1), mymat ]), axis=0 )
-     
+            elif i == 3:
+                temp = predict(np.rot90(img, 1), model, patch_sz=PATCH_SZ, n
