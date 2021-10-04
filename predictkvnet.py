@@ -109,4 +109,6 @@ if __name__ == '__main__':
             elif i == 2:    # transpose(interchange) first and second dimensions
                 temp = predict(img.transpose([1,0,2]), model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])
                 #print(temp[0][0][0], temp[3][12][13])
-                print("Case 3", temp
+                print("Case 3", temp.shape, mymat.shape)
+                mymat = np.mean( np.array([ temp.transpose(0,2,1), mymat ]), axis=0 )
+     
