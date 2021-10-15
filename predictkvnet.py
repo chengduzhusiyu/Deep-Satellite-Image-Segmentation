@@ -118,4 +118,5 @@ if __name__ == '__main__':
                 mymat = np.mean( np.array([ np.rot90(temp, -1).transpose([2,0,1]), mymat ]), axis=0 )
             elif i == 4:
                 temp = predict(np.rot90(img,2), model, patch_sz=PATCH_SZ, n_classes=N_CLASSES)
-                #p
+                #print(temp.transpose([2,0,1])[0][0][0], temp.transpose([2,0,1])[3][12][13])
+                # p
