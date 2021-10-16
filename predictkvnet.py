@@ -125,4 +125,6 @@ if __name__ == '__main__':
                 temp = predict(np.rot90(img,3), model, patch_sz=PATCH_SZ, n_classes=N_CLASSES)
                 #print(temp.transpose([2,0,1])[0][0][0], temp.transpose([2,0,1])[3][12][13])
                 # print("Case 6", temp.shape, mymat.shape)
-                mymat = np.mean( np.array([ np.rot90(temp, -3).transpose(2,0,1), mymat ]), axis=
+                mymat = np.mean( np.array([ np.rot90(temp, -3).transpose(2,0,1), mymat ]), axis=0 )
+            else:
+                temp = predict(img, model, patch_sz=PATCH_SZ, n_class
