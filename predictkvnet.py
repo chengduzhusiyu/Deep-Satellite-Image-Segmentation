@@ -127,4 +127,6 @@ if __name__ == '__main__':
                 # print("Case 6", temp.shape, mymat.shape)
                 mymat = np.mean( np.array([ np.rot90(temp, -3).transpose(2,0,1), mymat ]), axis=0 )
             else:
-                temp = predict(img, model, patch_sz=PATCH_SZ, n_class
+                temp = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])
+                #print(temp[0][0][0], temp[3][12][13])
+                # prin
