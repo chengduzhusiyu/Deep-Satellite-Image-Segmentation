@@ -130,4 +130,7 @@ if __name__ == '__main__':
                 temp = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])
                 #print(temp[0][0][0], temp[3][12][13])
                 # print("Case 7", temp.shape, mymat.shape)
-                mymat = np.mean( np.array([ temp, my
+                mymat = np.mean( np.array([ temp, mymat ]), axis=0 )
+    
+        #print(mymat[0][0][0], mymat[3][12][13])
+        map = picture_from_mask(mymat, 0.5
