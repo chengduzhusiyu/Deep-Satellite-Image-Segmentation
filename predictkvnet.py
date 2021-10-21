@@ -134,4 +134,7 @@ if __name__ == '__main__':
     
         #print(mymat[0][0][0], mymat[3][12][13])
         map = picture_from_mask(mymat, 0.5)
-        #mask = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])  
+        #mask = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])  # make channels first
+        #map = picture_from_mask(mask, 0.5)
+    
+        #tiff.imsave('result.tif', (255*mask
