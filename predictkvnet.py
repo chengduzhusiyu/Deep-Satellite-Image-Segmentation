@@ -139,4 +139,6 @@ if __name__ == '__main__':
     
         #tiff.imsave('result.tif', (255*mask).astype('uint8'))
         tiff.imsave('data/restest{}.tif'.format(test_id), (255*mymat).astype('uint8'))
-        tiff.imsav
+        tiff.imsave('data/maptest{}.tif'.format(test_id), map)
+    
+    # print("kappa",kappa(cv2.imread('data/testout/maptest{}.tif'.
