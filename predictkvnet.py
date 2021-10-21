@@ -137,4 +137,6 @@ if __name__ == '__main__':
         #mask = predict(img, model, patch_sz=PATCH_SZ, n_classes=N_CLASSES).transpose([2,0,1])  # make channels first
         #map = picture_from_mask(mask, 0.5)
     
-        #tiff.imsave('result.tif', (255*mask
+        #tiff.imsave('result.tif', (255*mask).astype('uint8'))
+        tiff.imsave('data/restest{}.tif'.format(test_id), (255*mymat).astype('uint8'))
+        tiff.imsav
