@@ -142,4 +142,4 @@ if __name__ == '__main__':
         tiff.imsave('data/maptest{}.tif'.format(test_id), map)
     
     # print("kappa",kappa(cv2.imread('data/testout/maptest{}.tif'.format(test_id)),cv2.imread('data/testgt.tif')))
-    # print("f1Score",f1Score(cv2.imread('da
+    # print("f1Score",f1Score(cv2.imread('data/testout/maptest{}.tif'.format(test_id)),cv2.imread('data/testgt.tif')))
