@@ -13,4 +13,9 @@ def normalize(img):
     min = img.min()
     max = img.max()
     x = 2.0 * (img - min) / (max - min) - 1.0
-    re
+    return x
+
+
+
+N_BANDS = 4 
+N_CLASSES = 8  # Brown - Bare Soil, Light green - Grass, Gray - Buil
