@@ -18,4 +18,5 @@ def normalize(img):
 
 
 N_BANDS = 4 
-N_CLASSES = 8  # Brown - Bare Soil, Light green - Grass, Gray - Buil
+N_CLASSES = 8  # Brown - Bare Soil, Light green - Grass, Gray - Building, Purple - Swimming Pool, Dark Green - Trees, Black - Roads , Yellow - Railway Station and Blue - Water
+CLA
