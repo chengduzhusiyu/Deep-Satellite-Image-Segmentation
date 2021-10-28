@@ -19,4 +19,4 @@ def normalize(img):
 
 N_BANDS = 4 
 N_CLASSES = 8  # Brown - Bare Soil, Light green - Grass, Gray - Building, Purple - Swimming Pool, Dark Green - Trees, Black - Roads , Yellow - Railway Station and Blue - Water
-CLA
+CLASS_WEIGHTS = [0.1, 0.1, 0.1, 0.4, 0.4, 0.7, 0.55, 0.15]  # 50+30 -- tatti -- 0.0900 training 
