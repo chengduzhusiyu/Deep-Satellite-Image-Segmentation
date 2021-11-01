@@ -22,4 +22,4 @@ N_CLASSES = 8  # Brown - Bare Soil, Light green - Grass, Gray - Building, Purple
 CLASS_WEIGHTS = [0.1, 0.1, 0.1, 0.4, 0.4, 0.7, 0.55, 0.15]  # 50+30 -- tatti -- 0.0900 training error and validation error = 1.3 to 0.5
 # CLASS_WEIGHTS = [ 6.49350649 , 0.87642419 , 0.275558  , 10 ,  0.70921986  ,0.39651071 , 6.02409639 , 1.05374078]   # not tried but have a positive feeling about these weights
 # CLASS_WEIGHTS = [ 0.11619276 , 0.01575265 , 0.0049555 , 0.71596023, 0.01274994, 0.00713148, 0.10830608, 0.01895136]  # calulated v1 good
-# CLASS_WEIGHTS = [ 0.11619276 , 
+# CLASS_WEIGHTS = [ 0.11619276 , 0.1575265 , 0.049555 , 0.71596023, 0.1274994, 0.0713148, 0.40830608, 0.1895136]  # calculated_v2  
