@@ -32,4 +32,5 @@ BATCH_SIZE = 100
 TRAIN_SZ = 2500  # train size
 VAL_SZ = 500    # validation size
 
-def get_mo
+def get_model():
+    return unet_model(N_CLASSES, PATCH_SZ, n_channels=N_BANDS, upconv=UPCONV, class_weights=C
