@@ -27,4 +27,9 @@ CLASS_WEIGHTS = [0.1, 0.1, 0.1, 0.4, 0.4, 0.7, 0.55, 0.15]  # 50+30 -- tatti -- 
 
 N_EPOCHS = 40 
 UPCONV = True
-PATCH_SZ = 16*8   # should d
+PATCH_SZ = 16*8   # should divide by 16
+BATCH_SIZE = 100
+TRAIN_SZ = 2500  # train size
+VAL_SZ = 500    # validation size
+
+def get_mo
