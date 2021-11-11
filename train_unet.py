@@ -38,4 +38,9 @@ def get_model():
 
 weights_path = 'weights'
 if not os.path.exists(weights_path):
-    os.makedirs(w
+    os.makedirs(weights_path)
+weights_path += '/unet_weightscalculated_v2.hdf5'
+
+
+def train_net():
+    print
