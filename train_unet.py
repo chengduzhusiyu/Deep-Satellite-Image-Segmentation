@@ -43,4 +43,5 @@ weights_path += '/unet_weightscalculated_v2.hdf5'
 
 
 def train_net():
-    print
+    print("start train net")
+    x_train, y_train = get_patches(X_DICT_TRAIN, Y_DICT_TRAIN, n_patches=TRAIN_SZ, sz=
