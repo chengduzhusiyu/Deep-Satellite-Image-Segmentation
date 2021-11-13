@@ -46,4 +46,6 @@ def train_net():
     print("start train net")
     x_train, y_train = get_patches(X_DICT_TRAIN, Y_DICT_TRAIN, n_patches=TRAIN_SZ, sz=PATCH_SZ)
     x_val, y_val = get_patches(X_DICT_VALIDATION, Y_DICT_VALIDATION, n_patches=VAL_SZ, sz=PATCH_SZ)
-   
+    model = get_model()
+    if os.path.isfile(weights_path):
+        model.load_weights(weights_
