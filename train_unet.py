@@ -48,4 +48,5 @@ def train_net():
     x_val, y_val = get_patches(X_DICT_VALIDATION, Y_DICT_VALIDATION, n_patches=VAL_SZ, sz=PATCH_SZ)
     model = get_model()
     if os.path.isfile(weights_path):
-        model.load_weights(weights_
+        model.load_weights(weights_path)
+    #model_checkpoint = ModelCheckpoint(weights_path, monitor='val_loss', save_weights_only=True, 
