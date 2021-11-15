@@ -49,4 +49,5 @@ def train_net():
     model = get_model()
     if os.path.isfile(weights_path):
         model.load_weights(weights_path)
-    #model_checkpoint = ModelCheckpoint(weights_path, monitor='val_loss', save_weights_only=True, 
+    #model_checkpoint = ModelCheckpoint(weights_path, monitor='val_loss', save_weights_only=True, save_best_only=True)
+    #early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=10, verbo
