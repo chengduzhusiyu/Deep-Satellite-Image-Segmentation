@@ -50,4 +50,6 @@ def train_net():
     if os.path.isfile(weights_path):
         model.load_weights(weights_path)
     #model_checkpoint = ModelCheckpoint(weights_path, monitor='val_loss', save_weights_only=True, save_best_only=True)
-    #early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=10, verbo
+    #early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=10, verbose=1, mode='auto')
+    #reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.1, patience=5, min_lr=0.00001)
+    model_che
