@@ -53,4 +53,5 @@ def train_net():
     #early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=10, verbose=1, mode='auto')
     #reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.1, patience=5, min_lr=0.00001)
     model_checkpoint = ModelCheckpoint(weights_path, monitor='val_loss', save_best_only=True)
-    csv_logger = CSVLogger('log_u
+    csv_logger = CSVLogger('log_unet.csv', append=True, separator=';')
+    tensorboard = TensorBoard(log_dir='./tensorboard_unet/', write_graph=True, wri
