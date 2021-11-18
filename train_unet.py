@@ -56,4 +56,6 @@ def train_net():
     csv_logger = CSVLogger('log_unet.csv', append=True, separator=';')
     tensorboard = TensorBoard(log_dir='./tensorboard_unet/', write_graph=True, write_images=True)
     model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=N_EPOCHS,
-              v
+              verbose=2, shuffle=True,
+              callbacks=[model_checkpoint, csv_logger, tensorboard],
+              vali
