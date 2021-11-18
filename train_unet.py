@@ -54,4 +54,6 @@ def train_net():
     #reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.1, patience=5, min_lr=0.00001)
     model_checkpoint = ModelCheckpoint(weights_path, monitor='val_loss', save_best_only=True)
     csv_logger = CSVLogger('log_unet.csv', append=True, separator=';')
-    tensorboard = TensorBoard(log_dir='./tensorboard_unet/', write_graph=True, wri
+    tensorboard = TensorBoard(log_dir='./tensorboard_unet/', write_graph=True, write_images=True)
+    model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=N_EPOCHS,
+              v
