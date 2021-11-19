@@ -58,4 +58,9 @@ def train_net():
     model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=N_EPOCHS,
               verbose=2, shuffle=True,
               callbacks=[model_checkpoint, csv_logger, tensorboard],
-              vali
+              validation_data=(x_val, y_val))
+    return model
+
+trainIds = [str(i) for i in range(1, 15)]
+
+if __name__ == '__mai
