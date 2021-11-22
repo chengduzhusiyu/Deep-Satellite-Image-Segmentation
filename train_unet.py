@@ -67,4 +67,8 @@ if __name__ == '__main__':
     X_DICT_TRAIN = dict()
     Y_DICT_TRAIN = dict()
     X_DICT_VALIDATION = dict()
-    Y_DICT_V
+    Y_DICT_VALIDATION = dict()
+    print("start train net")
+    model = get_model()
+    print(weights_path)
+  
