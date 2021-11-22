@@ -63,4 +63,8 @@ def train_net():
 
 trainIds = [str(i) for i in range(1, 15)]
 
-if __name__ == '__mai
+if __name__ == '__main__':
+    X_DICT_TRAIN = dict()
+    Y_DICT_TRAIN = dict()
+    X_DICT_VALIDATION = dict()
+    Y_DICT_V
