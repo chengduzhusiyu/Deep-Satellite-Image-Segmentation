@@ -76,4 +76,5 @@ if __name__ == '__main__':
             
     for img_id in trainIds:
         img_m = normalize(tiff.imread('./data/sat/{}.tif'.format(img_id)))
-        mask = tiff.im
+        mask = tiff.imread('./data/mygt/{}.tif'.format(img_id)).transpose([1, 2, 0]) / 255
+        train_xsz = int
