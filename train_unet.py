@@ -71,4 +71,7 @@ if __name__ == '__main__':
     print("start train net")
     model = get_model()
     print(weights_path)
-  
+    # if os.path.isfile(weights_path):
+        # model.load_weights(weights_path)
+            
+    for img_
