@@ -74,4 +74,6 @@ if __name__ == '__main__':
     # if os.path.isfile(weights_path):
         # model.load_weights(weights_path)
             
-    for img_
+    for img_id in trainIds:
+        img_m = normalize(tiff.imread('./data/sat/{}.tif'.format(img_id)))
+        mask = tiff.im
