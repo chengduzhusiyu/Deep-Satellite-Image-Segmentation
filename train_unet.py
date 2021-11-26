@@ -80,4 +80,5 @@ if __name__ == '__main__':
         train_xsz = int(2/3 * img_m.shape[0])  # use 75% of image as train and 25% for validation
         X_DICT_TRAIN[img_id] = img_m[:train_xsz, :, :]
         Y_DICT_TRAIN[img_id] = mask[:train_xsz, :, :]
-        X_DICT_VA
+        X_DICT_VALIDATION[img_id] = img_m[train_xsz:, :, :]
+        Y_DICT_VALIDATION[img_id] = mask[train_xsz:, 
