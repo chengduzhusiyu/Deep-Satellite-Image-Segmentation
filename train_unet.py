@@ -81,4 +81,10 @@ if __name__ == '__main__':
         X_DICT_TRAIN[img_id] = img_m[:train_xsz, :, :]
         Y_DICT_TRAIN[img_id] = mask[:train_xsz, :, :]
         X_DICT_VALIDATION[img_id] = img_m[train_xsz:, :, :]
-        Y_DICT_VALIDATION[img_id] = mask[train_xsz:, 
+        Y_DICT_VALIDATION[img_id] = mask[train_xsz:, :, :]
+        print(img_id + ' read')
+        print('Images were read')
+    train_net()
+
+    
+    
