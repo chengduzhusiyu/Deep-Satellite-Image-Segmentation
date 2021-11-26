@@ -78,4 +78,6 @@ if __name__ == '__main__':
         img_m = normalize(tiff.imread('./data/sat/{}.tif'.format(img_id)))
         mask = tiff.imread('./data/mygt/{}.tif'.format(img_id)).transpose([1, 2, 0]) / 255
         train_xsz = int(2/3 * img_m.shape[0])  # use 75% of image as train and 25% for validation
-        X_DICT_TRAIN[img_
+        X_DICT_TRAIN[img_id] = img_m[:train_xsz, :, :]
+        Y_DICT_TRAIN[img_id] = mask[:train_xsz, :, :]
+        X_DICT_VA
