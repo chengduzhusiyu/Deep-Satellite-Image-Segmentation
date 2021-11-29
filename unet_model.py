@@ -11,4 +11,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
                class_weights=[0.2, 0.3, 0.1, 0.1, 0.3]):
     droprate=0.25
     n_filters = n_filters_start
-    inputs = Input((im_
+    inputs = Input((im_sz, im_sz, n_channels))
+    #inputs = BatchNormalization()(inputs)
+    conv1 = Conv2D(n_filters, (3, 3), activati
