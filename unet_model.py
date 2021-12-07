@@ -21,4 +21,5 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     n_filters *= growth_factor
     pool1 = BatchNormalization()(pool1)
     conv2 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(pool1)
-    conv2 = Conv2D(n_filters,
+    conv2 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(conv2)
+    pool2 = MaxPooling2D(pool_size=(2, 2))(co
