@@ -32,4 +32,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     pool3 = MaxPooling2D(pool_size=(2, 2))(conv3)
     pool3 = Dropout(droprate)(pool3)
 
-    n_filters *= grow
+    n_filters *= growth_factor
+    pool3 = BatchNormalization()(pool3)
+    conv4_0 = Conv2D(n_filters,
