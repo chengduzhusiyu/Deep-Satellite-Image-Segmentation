@@ -34,4 +34,5 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
 
     n_filters *= growth_factor
     pool3 = BatchNormalization()(pool3)
-    conv4_0 = Conv2D(n_filters,
+    conv4_0 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(pool3)
+    conv4_0 = Conv2D(n_filters, (3, 3), activa
