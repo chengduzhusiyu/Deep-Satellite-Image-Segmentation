@@ -94,4 +94,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     if upconv:
         up9 = concatenate([Conv2DTranspose(n_filters, (2, 2), strides=(2, 2), padding='same')(conv8), conv1])
     else:
-        up9 = concatenate([UpSampling2D(size=(2, 2))
+        up9 = concatenate([UpSampling2D(size=(2, 2))(conv8), conv1])
+    conv9 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(up9)
+    con
