@@ -96,4 +96,6 @@ def unet_model(n_classes=8, im_sz=160, n_channels=4, n_filters_start=32, growth_
     else:
         up9 = concatenate([UpSampling2D(size=(2, 2))(conv8), conv1])
     conv9 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(up9)
-    con
+    conv9 = Conv2D(n_filters, (3, 3), activation='relu', padding='same')(conv9)
+
+    conv10 = Conv2D(n_cla
