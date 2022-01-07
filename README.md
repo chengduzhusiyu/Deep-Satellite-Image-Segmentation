@@ -8,4 +8,6 @@ No previous experience in Deep Learning is required. Just follow the steps and y
 
 1. Place your satellite images in the data/sat5band/ folder.
 2. Run the scripts in the following order to train the model for all images:
-   - `python3 edgeGen.py` - to genera
+   - `python3 edgeGen.py` - to generate edge data
+   - `python3 water_mask_function.py` - to generate water data
+   - `python3 Grass_mask_function.py` -
