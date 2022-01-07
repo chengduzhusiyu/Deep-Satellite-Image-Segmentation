@@ -6,4 +6,6 @@ No previous experience in Deep Learning is required. Just follow the steps and y
 
 ## Setup Instructions
 
-1. Place your satellite images in the data/sat
+1. Place your satellite images in the data/sat5band/ folder.
+2. Run the scripts in the following order to train the model for all images:
+   - `python3 edgeGen.py` - to genera
