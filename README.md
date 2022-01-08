@@ -10,4 +10,5 @@ No previous experience in Deep Learning is required. Just follow the steps and y
 2. Run the scripts in the following order to train the model for all images:
    - `python3 edgeGen.py` - to generate edge data
    - `python3 water_mask_function.py` - to generate water data
-   - `python3 Grass_mask_function.py` -
+   - `python3 Grass_mask_function.py` - to generate vegetation data
+   - `python3 genpatches.py` - to generate patches for abov
