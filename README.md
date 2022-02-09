@@ -14,4 +14,10 @@ No previous experience in Deep Learning is required. Just follow the steps and y
    - `python3 genpatches.py` - to generate patches for above generated data
    - `python3 train_unet.py` - begins the training of the UNET model
    - `python3 train_kvnet.py` - begins the training of the KV_Net
-   - `python3 predict_kvnet.py` - Outputs will be 
+   - `python3 predict_kvnet.py` - Outputs will be stored in ./outputs/ of data/test/
+
+## Required Libraries
+  - cv2
+  - tifffile
+  - numpy
+  - keras-g
