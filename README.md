@@ -20,4 +20,8 @@ No previous experience in Deep Learning is required. Just follow the steps and y
   - cv2
   - tifffile
   - numpy
-  - keras-g
+  - keras-gpu
+  - tensorflow-gpu
+  - glob
+
+Alternatively, you can use preset weights saved [here](https://drive.
