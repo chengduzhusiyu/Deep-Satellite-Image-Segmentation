@@ -25,4 +25,9 @@ No previous experience in Deep Learning is required. Just follow the steps and y
   - glob
 
 Alternatively, you can use preset weights saved [here](https://drive.google.com/file/d/10xldHiPczByAbWKMJ3Ov0uusbUY5Ve53/view?usp=sharing) and [here](https://drive.google.com/file/d/1qXzXAAYm0G6z9SaiLtbc1vEqh3E-qS2N/view?usp=sharing) and run the following commands:
-   - `py
+   - `python3 predict.py`
+   - `python3 predict2.py`
+   - `python3 predict_kvnet.py`
+
+
+By - ChengDuZhusiyu
