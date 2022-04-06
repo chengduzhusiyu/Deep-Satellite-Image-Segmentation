@@ -24,4 +24,4 @@ No previous experience in Deep Learning is required. Just follow the steps and y
   - tensorflow-gpu
   - glob
 
-Alternatively, you can use preset weights saved [here](https://drive.
+Alternatively, you can use preset weights saved [here](https://drive.google.com/file/d/10xldHiPczByAbWKMJ3Ov0uusbUY5Ve53/view?usp=sharing) and [here](https://drive.google.
